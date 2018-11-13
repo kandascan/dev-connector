@@ -15,6 +15,7 @@ router.post('/register', (req, res) =>{
   const { errors, isValid } = validateRegisterInput(req.body);
   if(!isValid){
     res.status(400).json(errors);
+    return;
   }
 
   User.findOne({ email: req.body.email })
